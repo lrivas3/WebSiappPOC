@@ -6,11 +6,9 @@ namespace Infrastructure.Adapters.Driven.Database.Configuration;
 
 public static class DatabaseAdaptersConfig
 {
-    // configurar contenedor de dependencias para usarlo en Program.cs
      public static void AddDatabase(this IServiceCollection services, string databaseConnection)
         {
-        services.AddDbContext<FacturacionContext>(options => options.UseSqlServer(databaseConnection));
-
-            services.AddScoped<IDteRepository, DteRepository>();
+        services.AddDbContext<PruebaConceptoContext>(options => options.UseSqlServer(databaseConnection));
+            services.AddScoped<IPersonaRepository, PersonaRepository>();
         }
 }

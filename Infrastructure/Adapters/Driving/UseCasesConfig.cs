@@ -7,6 +7,6 @@ public static class UseCasesConfig
 {
     public static void AddUseCases(this IServiceCollection services)
     {
-        services.AddTransient<IRegisterDte, RegisterDte>();
+        services.AddTransient<IRegisterPersona, RegisterDte>();
     }
 }

@@ -11,11 +11,11 @@ namespace Infrastructure.Adapters.Driving.RestControllers;
 [Route("api/[controller]")]
 public class DtesController : ControllerBase
 {
-    private readonly IRegisterDte _registerDte;
+    private readonly IRegisterPersona _registerPersona;
 
-    public DtesController(IRegisterDte registerDte)
+    public DtesController(IRegisterPersona registerPersona)
     {
-        _registerDte = registerDte;
+        _registerPersona = registerPersona;
     }
 
     [HttpPost("{tipoDte}")]
@@ -23,7 +23,7 @@ public class DtesController : ControllerBase
     {
         try
         {
-            var registeredId = _registerDte.Execute(tipoDte);
+            var registeredId = _registerPersona.Execute(tipoDte);
 
             return Ok(new {Id = registeredId, SomethingElse = registeredId });
         }
