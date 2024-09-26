@@ -1,3 +1,4 @@
+using System.Reflection;
 using Infrastructure.Adapters.Driven.Database.Configuration;
 using Infrastructure.Adapters.Driving;
 using Service;
@@ -12,7 +13,9 @@ AppSettings appSettings = new();
 configuration.GetSection(nameof(AppSettings)).Bind(appSettings);
 
 builder.Services.AddControllers();
+
 builder.Services.AddUseCases();
+builder.Services.AddAutoMapper(Assembly.Load(typeof(Program).Assembly.GetName().Name!));
 builder.Services.AddDatabase(appSettings.DatabaseConnection);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

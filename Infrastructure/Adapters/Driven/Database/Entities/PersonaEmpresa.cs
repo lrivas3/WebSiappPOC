@@ -19,5 +19,5 @@ public class PersonaEmpresa
     public DateTime? FechaFinContrato { get; set; }
 
     public virtual PersonaEntity PersonaEntity { get; set; }
-    public virtual Empresa Empresa { get; set; }
+    public virtual EmpresaEntity EmpresaEntity { get; set; }
 }

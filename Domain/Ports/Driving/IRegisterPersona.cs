@@ -4,5 +4,5 @@ namespace Domain.Ports.Driving;
 
 public interface IRegisterPersona
 {
-    Task<Persona> Execute(Persona persona);
+    Task<PersonaModel?> Execute(PersonaModel personaModel);
 }

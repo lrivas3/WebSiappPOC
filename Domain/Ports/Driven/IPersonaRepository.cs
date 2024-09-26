@@ -4,5 +4,6 @@ namespace Domain.Ports.Driven;
 
 public interface IPersonaRepository
 {
-    Task<Persona?> GetPersonaById(int id);
+    Task<PersonaModel?> GetPersonaById(int id);
+    Task<PersonaModel?> AddPersona(PersonaModel persona);
 }
