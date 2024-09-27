@@ -7,7 +7,6 @@ namespace Infrastructure.Adapters.Driving.Mappers;
 
 public class DrivingPersonaMappingProfile : Profile
 {
-
     public DrivingPersonaMappingProfile()
     {
         CreateMap<RegistrarPersonaRequestDto, PersonaModel>()

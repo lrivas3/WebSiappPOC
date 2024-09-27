@@ -17,5 +17,7 @@ public class PersonaMappingProfile : Profile
                 CreateMap<PersonaModel,RegistrarPersonaResponseDto>()
                     .ReverseMap();
                 
+                CreateMap<PersonaModel,PersonaGetResultDto>()
+                    .ReverseMap();
     }
 }

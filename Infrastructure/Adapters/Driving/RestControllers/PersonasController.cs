@@ -1,5 +1,7 @@
 ﻿using System.Net.Mime;
 using AutoMapper;
+using Domain.Errors;
+using ErrorOr;
 using Domain.Models;
 using Domain.Ports.Driving;
 using static Microsoft.AspNetCore.Http.StatusCodes;
@@ -17,12 +19,14 @@ namespace Infrastructure.Adapters.Driving.RestControllers;
 public class PersonasController : ControllerBase
 {
     private readonly IRegisterPersona _registerPersona;
+    private readonly IConsultarPersona _consultarPersona;
     private readonly IMapper _mapper;
 
-    public PersonasController(IRegisterPersona registerPersona, IMapper mapper)
+    public PersonasController(IRegisterPersona registerPersona, IMapper mapper, IConsultarPersona consultarPersona)
     {
         _registerPersona = registerPersona;
         _mapper = mapper;
+        _consultarPersona = consultarPersona;
     }
 
     [HttpPost]
@@ -42,6 +46,27 @@ public class PersonasController : ControllerBase
         {
             // ignored
             return Problem(ex.ToString());
+        }
+    }
+
+    [HttpGet("{id}")]
+    public async Task<ErrorOr<IActionResult>> Get(int id)
+    {
+        try
+        {
+            var getPersonaRequest = await _consultarPersona.Execute(id);
+
+            if (getPersonaRequest.IsError)
+            {
+            }
+            
+            var mappedPersonResponse = _mapper.Map<RegistrarPersonaResponseDto>(getPersonaRequest.Value);
+            
+            return Ok(mappedPersonResponse);
+        }
+        catch (Exception e)
+        {
+            return Problem(e.InnerException.ToString());
         }
     }
 }

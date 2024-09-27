@@ -1,4 +1,5 @@
 using Domain.Models;
+using ErrorOr;
 using Domain.Ports.Driven;
 using Domain.Ports.Driving;
 
@@ -13,15 +14,15 @@ public class RegistrarPersona : IRegisterPersona
         _personaRepository = personaRepository;
     }
 
-    public Task<PersonaModel?> Execute(PersonaModel personaModel)
+    public async Task<ErrorOr<PersonaModel?>> Execute(PersonaModel personaModel)
     {
-        var personaGuardada = _personaRepository.AddPersona(personaModel);
+        var guardarPersonaResult = await _personaRepository.AddPersona(personaModel);
 
-        if (personaGuardada.Result == null)
+        if (guardarPersonaResult.IsError)
         {
-            throw new Exception("No se pudo registrar el persona");
+            return guardarPersonaResult.Errors;
         }
 
-        return personaGuardada;
+        return guardarPersonaResult.Value;
     }
 }
