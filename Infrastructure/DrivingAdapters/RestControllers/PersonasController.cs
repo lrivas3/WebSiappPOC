@@ -30,21 +30,19 @@ public class PersonasController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> RegistrarPersona(RegistrarPersonaRequestDto personaDto)
     {
-        try
-        {
-            var personaCreateRequest = _mapper.Map<PersonaModel>(personaDto);
-            
-            var registeredPersona = await _registerPersona.Execute(personaCreateRequest);
+        var personaCreateRequest = _mapper.Map<PersonaModel>(personaDto);
 
-            var personaResponse = _mapper.Map<RegistrarPersonaResponseDto>(registeredPersona);
+        var registeredPersona = await _registerPersona.Execute(personaCreateRequest);
 
-            return Ok(personaResponse);
-        }
-        catch(Exception ex)
-        {
-            // ignored
-            return Problem(ex.ToString());
-        }
+        var personaResponse = _mapper.Map<RegistrarPersonaResponseDto>(registeredPersona);
+
+        return Ok(personaResponse);
+    }
+
+    [HttpPost("Excepcion")]
+    public IActionResult TestException()
+    {
+        throw new Exception("Probando Excepciones");
     }
 
     [HttpGet("{id}")]
