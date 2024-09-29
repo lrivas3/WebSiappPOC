@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Infrastructure.Adapters.Driven.Database.Entities;
 
 [Table("PersonaEmpresa")]
-public class PersonaEmpresa
+public class PersonaEmpresaEntity
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

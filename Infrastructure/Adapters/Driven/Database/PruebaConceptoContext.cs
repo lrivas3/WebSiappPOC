@@ -9,9 +9,9 @@ public class PruebaConceptoContext : DbContext
     {
     }
 
-    public virtual DbSet<PersonaEntity?> Personas { get; set; }
-    public virtual DbSet<EmpresaEntity> Empresas { get; set; }
-    public virtual DbSet<PersonaEmpresa> PersonaEmpresas { get; set; }
+    public DbSet<PersonaEntity> Personas { get; set; }
+    public DbSet<EmpresaEntity> Empresas { get; set; }
+    public DbSet<PersonaEmpresaEntity> PersonaEmpresas { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

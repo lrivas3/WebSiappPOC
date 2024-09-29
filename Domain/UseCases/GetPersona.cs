@@ -1,4 +1,4 @@
-using Domain.Errors;
+using Domain.Common.Errors;
 using Domain.Models;
 using ErrorOr;
 using Domain.Ports.Driven;

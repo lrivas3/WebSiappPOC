@@ -1,6 +1,5 @@
 ﻿using System.Net.Mime;
 using AutoMapper;
-using Domain.Errors;
 using ErrorOr;
 using Domain.Models;
 using Domain.Ports.Driving;

@@ -6,9 +6,9 @@ namespace Infrastructure.Adapters.Driven.Database.Configuration;
 
 public static class DatabaseAdaptersConfig
 {
-     public static void AddDatabase(this IServiceCollection services, string databaseConnection)
-        {
+    public static void AddPersistance(this IServiceCollection services, string databaseConnection)
+    {
         services.AddDbContext<PruebaConceptoContext>(options => options.UseSqlServer(databaseConnection));
-            services.AddScoped<IPersonaRepository, PersonaRepository>();
-        }
+        services.AddScoped<IPersonaRepository, PersonaRepository>();
+    }
 }
