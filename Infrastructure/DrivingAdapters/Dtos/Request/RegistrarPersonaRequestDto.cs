@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Infrastructure.Adapters.Driving.Dtos.Request;
+namespace Infrastructure.DrivingAdapters.Dtos.Request;
 
 public class RegistrarPersonaRequestDto
 {

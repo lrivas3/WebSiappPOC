@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using Domain.Models;
-using Infrastructure.Adapters.Driving.Dtos.Response;
+using Infrastructure.DrivingAdapters.Dtos.Response;
 
-namespace Infrastructure.Adapters.Driven.Database.Entities.Mappings;
+namespace Infrastructure.DrivenAdapters.Database.Entities.Mappings;
 
 public class PersonaMappingProfile : Profile
 {

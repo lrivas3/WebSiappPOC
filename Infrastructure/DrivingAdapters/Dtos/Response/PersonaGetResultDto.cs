@@ -1,4 +1,4 @@
-namespace Infrastructure.Adapters.Driving.Dtos.Response;
+namespace Infrastructure.DrivingAdapters.Dtos.Response;
 
 public class PersonaGetResultDto
 {

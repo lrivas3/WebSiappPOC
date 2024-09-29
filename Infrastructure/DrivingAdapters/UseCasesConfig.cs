@@ -1,7 +1,7 @@
 ﻿using Domain.Ports.Driving;
 using Domain.UseCases;
 
-namespace Infrastructure.Adapters.Driving;
+namespace Infrastructure.DrivingAdapters;
 
 public static class UseCasesConfig
 {

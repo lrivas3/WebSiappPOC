@@ -1,8 +1,8 @@
 ﻿using Domain.Ports.Driven;
-using Infrastructure.Adapters.Driven.Database.Repositories;
+using Infrastructure.DrivenAdapters.Database.Repositories;
 using Microsoft.EntityFrameworkCore;
 
-namespace Infrastructure.Adapters.Driven.Database.Configuration;
+namespace Infrastructure.DrivenAdapters.Database.Configuration;
 
 public static class DatabaseAdaptersConfig
 {
