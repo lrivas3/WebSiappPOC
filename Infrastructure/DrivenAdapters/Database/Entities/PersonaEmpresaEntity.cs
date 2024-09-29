@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Infrastructure.Adapters.Driven.Database.Entities;
+namespace Infrastructure.DrivenAdapters.Database.Entities;
 
 [Table("PersonaEmpresa")]
 public class PersonaEmpresaEntity

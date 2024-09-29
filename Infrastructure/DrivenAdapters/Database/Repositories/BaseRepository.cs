@@ -1,9 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
 using Domain.Ports.Driven;
-using Infrastructure.Adapters.Driven.Database.Configuration;
+using Microsoft.EntityFrameworkCore;
 
-namespace Infrastructure.Adapters.Driven.Database.Repositories;
+namespace Infrastructure.DrivenAdapters.Database.Repositories;
 
 public class BaseRepository<T> : IBaseRepository<T> where T : class
 {

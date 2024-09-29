@@ -1,7 +1,7 @@
-﻿using Infrastructure.Adapters.Driven.Database.Entities;
+﻿using Infrastructure.DrivenAdapters.Database.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Infrastructure.Adapters.Driven.Database;
+namespace Infrastructure.DrivenAdapters.Database;
 
 public class PruebaConceptoContext : DbContext
 {

@@ -1,9 +1,8 @@
 using AutoMapper;
 using Domain.Models;
-using Infrastructure.Adapters.Driving.Dtos;
-using Infrastructure.Adapters.Driving.Dtos.Request;
+using Infrastructure.DrivingAdapters.Dtos.Request;
 
-namespace Infrastructure.Adapters.Driving.Mappers;
+namespace Infrastructure.DrivingAdapters.Mappers;
 
 public class DrivingPersonaMappingProfile : Profile
 {

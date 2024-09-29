@@ -2,10 +2,10 @@
 using Domain.Models;
 using Domain.Ports.Driven;
 using ErrorOr;
-using Infrastructure.Adapters.Driven.Database.Entities;
+using Infrastructure.DrivenAdapters.Database.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Infrastructure.Adapters.Driven.Database.Repositories;
+namespace Infrastructure.DrivenAdapters.Database.Repositories;
 
 public class PersonaRepository(PruebaConceptoContext context, IMapper mapper) : BaseRepository<PersonaEntity>(context), IPersonaRepository
 {

@@ -1,6 +1,6 @@
 using System.Reflection;
-using Infrastructure.Adapters.Driven.Database.Configuration;
-using Infrastructure.Adapters.Driving;
+using Infrastructure.DrivenAdapters.Database.Configuration;
+using Infrastructure.DrivingAdapters;
 using Service;
 
 var builder = WebApplication.CreateBuilder(args);

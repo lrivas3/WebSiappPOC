@@ -1,14 +1,13 @@
 ﻿using System.Net.Mime;
 using AutoMapper;
-using ErrorOr;
 using Domain.Models;
 using Domain.Ports.Driving;
-using static Microsoft.AspNetCore.Http.StatusCodes;
-using Infrastructure.Adapters.Driving.Dtos.Request;
-using Infrastructure.Adapters.Driving.Dtos.Response;
+using ErrorOr;
+using Infrastructure.DrivingAdapters.Dtos.Request;
+using Infrastructure.DrivingAdapters.Dtos.Response;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Infrastructure.Adapters.Driving.RestControllers;
+namespace Infrastructure.DrivingAdapters.RestControllers;
 
 // Los controllers actuarian como adapters pero mejor que se llamen por convencion
 // como controllers porque sino no podemos usar [controller] para simplificar la ruta, hasta donde se
