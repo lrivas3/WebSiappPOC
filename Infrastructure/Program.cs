@@ -1,6 +1,8 @@
 using System.Reflection;
+using Infrastructure.Common.Errors;
 using Infrastructure.DrivenAdapters.Database.Configuration;
 using Infrastructure.DrivingAdapters;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Service;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,8 +14,9 @@ builder.Services.Configure<AppSettings>(configuration.GetSection(nameof(AppSetti
 AppSettings appSettings = new();
 configuration.GetSection(nameof(AppSettings)).Bind(appSettings);
 
+// builder.Services.AddControllers(options => options.Filters.Add<ErrorHandlingFilterAttribute>());
 builder.Services.AddControllers();
-
+builder.Services.AddSingleton<ProblemDetailsFactory, WebSiappCustomProblemDetailsFactory>();
 builder.Services.AddUseCases();
 builder.Services.AddAutoMapper(Assembly.Load(typeof(Program).Assembly.GetName().Name!));
 builder.Services.AddPersistance(appSettings.DatabaseConnection);
@@ -29,6 +32,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseExceptionHandler("/error");
 
 app.UseHttpsRedirection();
 
