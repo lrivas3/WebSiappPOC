@@ -8,6 +8,7 @@ public class RegistrarPersonaResponseDto
     public string Apellido { get; set; }
 
     public DateTime? FechaNacimiento { get; set; }
+    public string Email { get; set; }
 
     public string Ocupación { get; set; }
 }

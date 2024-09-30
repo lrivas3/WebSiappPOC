@@ -13,6 +13,7 @@ public class PersonaEntity
     [StringLength(200)] public string Nombre { get; set; }
 
     [StringLength(200)] public string Apellido { get; set; }
+    [EmailAddress] public string Email { get; set; }
 
     public DateTime? FechaNacimiento { get; set; }
 

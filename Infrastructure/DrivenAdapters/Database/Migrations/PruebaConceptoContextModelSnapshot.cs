@@ -98,6 +98,10 @@ namespace Infrastructure.DrivenAdapters.Database.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime?>("FechaNacimiento")
                         .HasColumnType("datetime2");
 
