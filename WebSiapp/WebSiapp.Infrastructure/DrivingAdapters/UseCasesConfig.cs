@@ -1,5 +1,5 @@
-﻿using WebSiapp.Application.UseCases;
-using WebSiapp.Domain.Ports.Driving;
+﻿using WebSiapp.Application.DrivingPorts;
+using WebSiapp.Application.UseCases;
 
 namespace WebSiapp.Infrastructure.DrivingAdapters;
 

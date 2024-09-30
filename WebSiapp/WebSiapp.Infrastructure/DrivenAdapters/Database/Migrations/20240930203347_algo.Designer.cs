@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebSiapp.Infrastructure.DrivenAdapters.Database;
 
@@ -11,9 +12,11 @@ using WebSiapp.Infrastructure.DrivenAdapters.Database;
 namespace WebSiapp.Infrastructure.DrivenAdapters.Database.Migrations
 {
     [DbContext(typeof(PruebaConceptoContext))]
-    partial class PruebaConceptoContextModelSnapshot : ModelSnapshot
+    [Migration("20240930203347_algo")]
+    partial class algo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -3,26 +3,16 @@ using WebSiapp.Infrastructure.Common.Errors;
 using WebSiapp.Infrastructure.DrivenAdapters.Database.Configuration;
 using WebSiapp.Infrastructure.DrivingAdapters;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
-using Microsoft.EntityFrameworkCore.Storage;
 using Serilog;
 using Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
-/*
 builder.Host.UseSerilog((context, loggerConfig) =>
 {
     loggerConfig.ReadFrom.Configuration(context.Configuration);
 });
-*/
-Log.Logger = new LoggerConfiguration()
-    .WriteTo.Console()
-    .WriteTo.Seq("http://localhost:5341")
-    .CreateLogger();
 
-Log.CloseAndFlush();
 
 ConfigurationManager configuration = builder.Configuration;
 builder.Services.Configure<AppSettings>(configuration.GetSection(nameof(AppSettings)));
@@ -34,7 +24,6 @@ builder.Services.AddSingleton<ProblemDetailsFactory, WebSiappCustomProblemDetail
 builder.Services.AddUseCases();
 builder.Services.AddAutoMapper(Assembly.Load(typeof(Program).Assembly.GetName().Name!));
 builder.Services.AddPersistance(appSettings.DatabaseConnection);
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -49,7 +38,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseExceptionHandler("/error");
 
-// app.UseSerilogRequestLogging();
+app.UseSerilogRequestLogging();
 
 app.UseHttpsRedirection();
 

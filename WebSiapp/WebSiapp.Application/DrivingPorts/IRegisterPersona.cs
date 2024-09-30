@@ -1,7 +1,7 @@
 ﻿using ErrorOr;
 using WebSiapp.Domain.Models;
 
-namespace WebSiapp.Domain.Ports.Driving;
+namespace WebSiapp.Application.Ports.DrivingPorts;
 
 public interface IRegisterPersona
 {

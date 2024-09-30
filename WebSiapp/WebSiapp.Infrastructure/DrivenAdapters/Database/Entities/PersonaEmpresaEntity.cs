@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebSiapp.Infrastructure.DrivenAdapters.Database.Entities;
 
-[Table("PersonaEmpresa")]
+[Table("PersonaEmpresa", Schema = "PRUEBA")]
 public class PersonaEmpresaEntity
 {
     [Key]
