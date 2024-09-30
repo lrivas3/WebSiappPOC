@@ -2,11 +2,18 @@ using ErrorOr;
 
 namespace Domain.Common.Errors;
 
-public class PersonaErrors
+public static class Errors
 {
-    // Too basic but just to test, I'll set up some more later
-    public static Error NotFoundPersona = Error.NotFound(
-        code: "Persona.NotFoundPersona",
-        description: "La persona no existe o esta inactiva"
+    public static class Persona
+    {
+        public static Error NotFoundPersona(int idPersona) => Error.NotFound(
+            code: "Persona.NotFoundPersona",
+            description: $"La persona no existe o esta inactiva, id = {idPersona}"
         );
+
+        public static Error EmailInvalidForLogging = Error.Conflict(
+            code: "Persona.EmailInvalidForLogging",
+            description: "Invalid email address"
+        );
+    }
 }

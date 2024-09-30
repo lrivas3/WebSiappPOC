@@ -1,4 +1,6 @@
 using System.Diagnostics;
+using ErrorOr;
+using Infrastructure.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -62,7 +64,7 @@ public class WebSiappCustomProblemDetailsFactory : ProblemDetailsFactory
             Status = statusCode,
             Type = type,
             Detail = detail,
-            Instance = instance,
+            Instance = instance
         };
 
         if (title != null)
@@ -92,7 +94,18 @@ public class WebSiappCustomProblemDetailsFactory : ProblemDetailsFactory
             problemDetails.Extensions["traceId"] = traceId;
         }
 
-        problemDetails.Extensions.Add("custom", "We can add custom problem details extensions this way");
+        var errors = httpContext?.Items[HttpContextItemKeys.Errors] as List<Error>;
+
+        if (errors is not null)
+        {
+            problemDetails.Extensions.Add("errors",
+                errors.GroupBy(e => e.Code)
+                    .OrderBy(g => g.Key)
+                    .ToDictionary(
+                        group => group.Key,
+                        group => group.Select(e => e.Description).ToArray()
+                    ));
+        }
 
         _configure?.Invoke(new() { HttpContext = httpContext!, ProblemDetails = problemDetails });
     }

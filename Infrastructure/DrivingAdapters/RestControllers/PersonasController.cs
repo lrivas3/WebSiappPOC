@@ -1,20 +1,14 @@
-﻿using System.Net.Mime;
-using AutoMapper;
+﻿using AutoMapper;
 using Domain.Models;
 using Domain.Ports.Driving;
-using ErrorOr;
 using Infrastructure.DrivingAdapters.Dtos.Request;
 using Infrastructure.DrivingAdapters.Dtos.Response;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Infrastructure.DrivingAdapters.RestControllers;
 
-// Los controllers actuarian como adapters pero mejor que se llamen por convencion
-// como controllers porque sino no podemos usar [controller] para simplificar la ruta, hasta donde se
-[ApiController]
-[Produces(MediaTypeNames.Application.Json)]
 [Route("api/[controller]")]
-public class PersonasController : ControllerBase
+public class PersonasController : ApiController
 {
     private readonly IRegisterPersona _registerPersona;
     private readonly IConsultarPersona _consultarPersona;
@@ -34,9 +28,10 @@ public class PersonasController : ControllerBase
 
         var registeredPersona = await _registerPersona.Execute(personaCreateRequest);
 
-        var personaResponse = _mapper.Map<RegistrarPersonaResponseDto>(registeredPersona);
-
-        return Ok(personaResponse);
+        return registeredPersona.Match(
+            result => Ok(_mapper.Map<RegistrarPersonaResponseDto>(result)),
+            Problem
+        );
     }
 
     [HttpPost("Excepcion")]
@@ -46,23 +41,17 @@ public class PersonasController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public async Task<ErrorOr<IActionResult>> Get(int id)
+    public async Task<IActionResult> Get(int id)
     {
-        try
-        {
-            var getPersonaRequest = await _consultarPersona.Execute(id);
+        var getPersonaResult = await _consultarPersona.Execute(id);
+        return getPersonaResult.Match(
+            persona => Ok(MapToPersonaResponse(persona)),
+            errors => Problem(errors)
+        );
+    }
 
-            if (getPersonaRequest.IsError)
-            {
-            }
-            
-            var mappedPersonResponse = _mapper.Map<RegistrarPersonaResponseDto>(getPersonaRequest.Value);
-            
-            return Ok(mappedPersonResponse);
-        }
-        catch (Exception e)
-        {
-            return Problem(e.InnerException.ToString());
-        }
+    private RegistrarPersonaResponseDto MapToPersonaResponse(PersonaModel result)
+    {
+        return _mapper.Map<RegistrarPersonaResponseDto>(result);
     }
 }

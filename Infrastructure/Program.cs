@@ -14,9 +14,8 @@ builder.Services.Configure<AppSettings>(configuration.GetSection(nameof(AppSetti
 AppSettings appSettings = new();
 configuration.GetSection(nameof(AppSettings)).Bind(appSettings);
 
-// builder.Services.AddControllers(options => options.Filters.Add<ErrorHandlingFilterAttribute>());
 builder.Services.AddControllers();
-builder.Services.AddSingleton<ProblemDetailsFactory, WebSiappCustomProblemDetailsFactory>();
+builder.Services.AddSingleton<ProblemDetailsFactory, WebSiappCustomProblemDetailsFactory>(); // TODO: Pasar a presentation
 builder.Services.AddUseCases();
 builder.Services.AddAutoMapper(Assembly.Load(typeof(Program).Assembly.GetName().Name!));
 builder.Services.AddPersistance(appSettings.DatabaseConnection);

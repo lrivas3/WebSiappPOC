@@ -16,13 +16,16 @@ public class RegistrarPersona : IRegisterPersona
 
     public async Task<ErrorOr<PersonaModel?>> Execute(PersonaModel personaModel)
     {
-        var guardarPersonaResult = await _personaRepository.AddPersona(personaModel);
+        var findResult = await _personaRepository.FindByEmail(personaModel.Email);
 
-        if (guardarPersonaResult.IsError)
+        if (findResult != null)
         {
-            return guardarPersonaResult.Errors;
+            // Lo se, no se deberia hacer pero es para probar
+            return Error.Conflict($"El correo electrónico {personaModel.Email} ya está registrado.");
         }
 
-        return guardarPersonaResult.Value;
+        var guardarPersonaResult = await _personaRepository.AddPersona(personaModel);
+
+        return guardarPersonaResult;
     }
 }

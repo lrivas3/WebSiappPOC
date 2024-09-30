@@ -17,12 +17,13 @@ public class GetPersona : IConsultarPersona
 
     public async Task<ErrorOr<PersonaModel>> Execute(int idPersona)
     {
-        var personaResult = await _personaRepository.GetPersonaById(idPersona);
-        if (personaResult.Value is null)
+        var createdPersona = await _personaRepository.GetPersonaById(idPersona);
+
+        if (createdPersona is null)
         {
-            return PersonaErrors.NotFoundPersona;
+            return Errors.Persona.NotFoundPersona(idPersona);
         }
-        
-        return personaResult.Value;
+
+        return createdPersona;
     }
 }

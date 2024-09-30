@@ -5,6 +5,7 @@ namespace Domain.Ports.Driven;
 
 public interface IPersonaRepository
 {
-    Task<ErrorOr<PersonaModel?>> GetPersonaById(int id);
-    Task<ErrorOr<PersonaModel?>> AddPersona(PersonaModel persona);
+    Task<PersonaModel?> GetPersonaById(int id);
+    Task<PersonaModel?> AddPersona(PersonaModel persona);
+    Task<PersonaModel?> FindByEmail(string personaModelEmail);
 }
