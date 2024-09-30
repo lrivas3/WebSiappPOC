@@ -1,8 +1,8 @@
 using ErrorOr;
+using WebSiapp.Application.DrivenPorts;
+using WebSiapp.Application.DrivingPorts;
 using WebSiapp.Domain.Common.Errors;
 using WebSiapp.Domain.Models;
-using WebSiapp.Application.Ports.Driven;
-using WebSiapp.Domain.Ports.Driving;
 
 namespace WebSiapp.Application.UseCases;
 

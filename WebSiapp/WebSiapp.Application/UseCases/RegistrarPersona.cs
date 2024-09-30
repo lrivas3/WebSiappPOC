@@ -1,7 +1,8 @@
 using ErrorOr;
-using WebSiapp.Application.Ports.Driven;
+using WebSiapp.Application.DrivenPorts;
+using WebSiapp.Application.DrivingPorts;
+using WebSiapp.Domain.Common.Errors;
 using WebSiapp.Domain.Models;
-using WebSiapp.Domain.Ports.Driving;
 
 namespace WebSiapp.Application.UseCases;
 
@@ -21,7 +22,7 @@ public class RegistrarPersona : IRegisterPersona
         if (findResult != null)
         {
             // Lo se, no se deberia hacer pero es para probar
-            return Error.Conflict($"El correo electrónico {personaModel.Email} ya está registrado.");
+            return Errors.Persona.NotFoundPersona(personaModel.Id);
         }
 
         var guardarPersonaResult = await _personaRepository.AddPersona(personaModel);

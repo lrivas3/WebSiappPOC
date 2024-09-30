@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using WebSiapp.Domain.Models;
-using WebSiapp.Application.Ports.Driven;
 using Microsoft.EntityFrameworkCore;
+using WebSiapp.Application.DrivenPorts;
 using WebSiapp.Infrastructure.DrivenAdapters.Database.Entities;
 
 namespace WebSiapp.Infrastructure.DrivenAdapters.Database.Repositories;

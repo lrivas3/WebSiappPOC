@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using WebSiapp.Domain.Models;
-using WebSiapp.Domain.Ports.Driving;
 using Microsoft.AspNetCore.Mvc;
+using WebSiapp.Application.DrivingPorts;
 using WebSiapp.Infrastructure.DrivingAdapters.Dtos.Request;
 using WebSiapp.Infrastructure.DrivingAdapters.Dtos.Response;
 

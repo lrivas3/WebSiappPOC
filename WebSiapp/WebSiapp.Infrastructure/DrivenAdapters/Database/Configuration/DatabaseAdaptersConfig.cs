@@ -1,5 +1,5 @@
-﻿using WebSiapp.Application.Ports.Driven;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using WebSiapp.Application.DrivenPorts;
 using WebSiapp.Infrastructure.DrivenAdapters.Database.Repositories;
 
 namespace WebSiapp.Infrastructure.DrivenAdapters.Database.Configuration;

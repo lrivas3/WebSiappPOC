@@ -1,6 +1,6 @@
 ﻿using WebSiapp.Domain.Models;
 
-namespace WebSiapp.Application.Ports.Driven;
+namespace WebSiapp.Application.DrivenPorts;
 
 public interface IPersonaRepository
 {

@@ -38,6 +38,7 @@ public class ApiController : ControllerBase
         };
 
         Log.Error("error => {@error}", error);
+        Log.CloseAndFlush();
 
         return Problem(statusCode: statusCode, title: error.Description);
     }
