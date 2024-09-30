@@ -4,15 +4,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{0C3EAABD-B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F45A807B-8052-4C2A-88BE-8E1250D81930}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{5A5AB038-9737-46FF-967E-C56402E1F6C9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSiapp.Domain", "WebSiapp.Domain\WebSiapp.Domain.csproj", "{5A5AB038-9737-46FF-967E-C56402E1F6C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{E0370A9E-92AA-4EE8-9B8E-F4C75116B016}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSiapp.Infrastructure", "WebSiapp.Infrastructure\WebSiapp.Infrastructure.csproj", "{E0370A9E-92AA-4EE8-9B8E-F4C75116B016}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Integration.Tests", "Domain.Integration.Tests\Domain.Integration.Tests.csproj", "{8A9FB9DE-4C9B-4819-8114-268067FB3050}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSiapp.Domain.Integration.Tests", "WebSiapp.Domain.Integration.Tests\WebSiapp.Domain.Integration.Tests.csproj", "{8A9FB9DE-4C9B-4819-8114-268067FB3050}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Unit.Tests", "Domain.Unit.Tests\Domain.Unit.Tests.csproj", "{3EE9EBAE-4345-4B32-9C41-A3ED31CB33BD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSiapp.Domain.Unit.Tests", "WebSiapp.Domain.Unit.Tests\WebSiapp.Domain.Unit.Tests.csproj", "{3EE9EBAE-4345-4B32-9C41-A3ED31CB33BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{6794BD62-B109-4DA6-8DF0-19BEBD7E43C0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSiapp.Application", "WebSiapp.Application\WebSiapp.Application.csproj", "{6794BD62-B109-4DA6-8DF0-19BEBD7E43C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
