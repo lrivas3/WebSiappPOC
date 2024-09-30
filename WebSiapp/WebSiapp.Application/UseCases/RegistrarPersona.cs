@@ -22,7 +22,7 @@ public class RegistrarPersona : IRegisterPersona
         if (findResult != null)
         {
             // Lo se, no se deberia hacer pero es para probar
-            return Errors.Persona.NotFoundPersona(personaModel.Id);
+            return Errors.Persona.EmailInvalidForLogging;
         }
 
         var guardarPersonaResult = await _personaRepository.AddPersona(personaModel);
