@@ -1,6 +1,7 @@
 using ErrorOr;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Serilog;
 using WebSiapp.Infrastructure.Http;
 
 namespace WebSiapp.Infrastructure.DrivingAdapters.RestControllers;
@@ -35,6 +36,8 @@ public class ApiController : ControllerBase
             ErrorType.Unauthorized => StatusCodes.Status403Forbidden,
             _ => StatusCodes.Status500InternalServerError
         };
+
+        Log.Error("error => {@error}", error);
 
         return Problem(statusCode: statusCode, title: error.Description);
     }

@@ -3,11 +3,26 @@ using WebSiapp.Infrastructure.Common.Errors;
 using WebSiapp.Infrastructure.DrivenAdapters.Database.Configuration;
 using WebSiapp.Infrastructure.DrivingAdapters;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Microsoft.EntityFrameworkCore.Storage;
+using Serilog;
 using Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+/*
+builder.Host.UseSerilog((context, loggerConfig) =>
+{
+    loggerConfig.ReadFrom.Configuration(context.Configuration);
+});
+*/
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .WriteTo.Seq("http://localhost:5341")
+    .CreateLogger();
+
+Log.CloseAndFlush();
 
 ConfigurationManager configuration = builder.Configuration;
 builder.Services.Configure<AppSettings>(configuration.GetSection(nameof(AppSettings)));
@@ -33,6 +48,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseExceptionHandler("/error");
+
+// app.UseSerilogRequestLogging();
 
 app.UseHttpsRedirection();
 
