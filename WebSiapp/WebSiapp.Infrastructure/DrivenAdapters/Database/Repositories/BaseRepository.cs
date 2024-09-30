@@ -1,5 +1,5 @@
 ﻿using System.Linq.Expressions;
-using WebSiapp.Domain.Ports.Driven;
+using WebSiapp.Application.Ports.Driven;
 using Microsoft.EntityFrameworkCore;
 
 namespace WebSiapp.Infrastructure.DrivenAdapters.Database.Repositories;

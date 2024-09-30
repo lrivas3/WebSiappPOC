@@ -1,7 +1,6 @@
-﻿using ErrorOr;
-using WebSiapp.Domain.Models;
+﻿using WebSiapp.Domain.Models;
 
-namespace WebSiapp.Domain.Ports.Driven;
+namespace WebSiapp.Application.Ports.Driven;
 
 public interface IPersonaRepository
 {

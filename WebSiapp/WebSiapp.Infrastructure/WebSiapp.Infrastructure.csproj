@@ -24,6 +24,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\WebSiapp.Application\WebSiapp.Application.csproj" />
       <ProjectReference Include="..\WebSiapp.Domain\WebSiapp.Domain.csproj" />
     </ItemGroup>
 

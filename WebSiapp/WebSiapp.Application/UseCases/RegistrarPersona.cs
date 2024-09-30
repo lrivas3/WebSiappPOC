@@ -1,9 +1,9 @@
 using ErrorOr;
+using WebSiapp.Application.Ports.Driven;
 using WebSiapp.Domain.Models;
-using WebSiapp.Domain.Ports.Driven;
 using WebSiapp.Domain.Ports.Driving;
 
-namespace WebSiapp.Domain.UseCases;
+namespace WebSiapp.Application.UseCases;
 
 public class RegistrarPersona : IRegisterPersona
 {

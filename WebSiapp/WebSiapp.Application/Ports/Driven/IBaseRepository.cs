@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace WebSiapp.Domain.Ports.Driven;
+namespace WebSiapp.Application.Ports.Driven;
 
 public interface IBaseRepository<T> where T : class
 {

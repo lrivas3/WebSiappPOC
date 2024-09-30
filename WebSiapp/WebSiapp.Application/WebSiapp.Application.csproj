@@ -6,4 +6,8 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\WebSiapp.Domain\WebSiapp.Domain.csproj" />
+    </ItemGroup>
+
 </Project>

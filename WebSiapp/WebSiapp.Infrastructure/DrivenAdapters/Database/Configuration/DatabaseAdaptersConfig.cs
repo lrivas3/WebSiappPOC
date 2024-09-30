@@ -1,4 +1,4 @@
-﻿using WebSiapp.Domain.Ports.Driven;
+﻿using WebSiapp.Application.Ports.Driven;
 using Microsoft.EntityFrameworkCore;
 using WebSiapp.Infrastructure.DrivenAdapters.Database.Repositories;
 

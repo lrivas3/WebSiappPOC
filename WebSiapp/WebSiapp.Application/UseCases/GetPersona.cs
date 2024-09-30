@@ -1,10 +1,10 @@
 using ErrorOr;
 using WebSiapp.Domain.Common.Errors;
 using WebSiapp.Domain.Models;
-using WebSiapp.Domain.Ports.Driven;
+using WebSiapp.Application.Ports.Driven;
 using WebSiapp.Domain.Ports.Driving;
 
-namespace WebSiapp.Domain.UseCases;
+namespace WebSiapp.Application.UseCases;
 
 public class GetPersona : IConsultarPersona
 {
